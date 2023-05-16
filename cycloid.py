@@ -24,21 +24,35 @@ font = pygame.font.Font(None, 28)
 # Load the image of the cycloid curve
 curve_image = pygame.image.load('cycloid_curve.png')
 
+# Get the dimensions of the curve image
+curve_image_width = curve_image.get_width()
+curve_image_height = curve_image.get_height()
+
+# Calculate the position to align the image on the right side
+image_x = screen_width - curve_image_width - 25
+image_y = 300
+
 # Blit the curve image onto the screen
-screen.blit(curve_image, (0, 0))
+screen.blit(curve_image, (image_x, image_y))
 
 # Cycloid curve information
 curve_info = [
     "Cycloid Curve",
     "-----------------",
-    "- The cycloid curve is a type of trochoid curve.",
-    "- It is traced by a point on the circumference of a rolling circle.",
-    "- The equations for a cycloid curve are:",
+    " The cycloid curve is a type of trochoid curve.",
+    " It is traced by a point on the circumference of a rolling circle.",
+    " The equations for a cycloid curve are:",
+    "     ",
     "     x = r(t - sin(t))",
     "     y = r(1 - cos(t))",
-    "- The curve has symmetry with respect to both the x-axis and the y-axis.",
-    "- The length of one arch of the cycloid curve is 8r.",
-    "- Applications of the cycloid curve include gear design and pendulum motion.",
+    "     ",
+    "     ",
+    "     r = radius",
+    "     t = theta",
+    "     ",
+    " The curve has symmetry with respect to both the x-axis and the y-axis.",
+    " The length of one arch of the cycloid curve is 8r.",
+    " Applications of the cycloid curve include gear design and pendulum motion.",
 ]
 
 # Render the text on separate surfaces
@@ -47,11 +61,14 @@ for line in curve_info:
     text_surface = font.render(line, True, pygame.Color('black'))
     text_surfaces.append(text_surface)
 
+# Calculate the position to align the text on the left side
+text_x = 25
+text_y = 25
+
 # Blit the text surfaces onto the screen
-text_height = screen_height - 350
 for text_surface in text_surfaces:
-    screen.blit(text_surface, (25, text_height))
-    text_height += 30
+    screen.blit(text_surface, (text_x, text_y))
+    text_y += 30
 
 # Update the display using flip
 pygame.display.flip()
