@@ -41,7 +41,7 @@ pygame.draw.rect(screen, header_colour, header_rect)
 screen.blit(header_text, (header_x + 10, header_y + 10))
 
 # Load the image of the cycloid curve
-curve_image = pygame.image.load('Screenshot 2023-05-17 130936.png')
+curve_image = pygame.image.load('cycloid_curve3.png')
 
 # Get the dimensions of the curve image
 curve_image_width = curve_image.get_width()
